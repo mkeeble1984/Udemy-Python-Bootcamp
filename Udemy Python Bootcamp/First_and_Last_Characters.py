@@ -1,10 +1,8 @@
 def count_words(p_list):
     count = 0
     for item in p_list:
-        first = item[0]
-        last = item[-1]
-        if first == last:
-            count = count + 1
+        if item[0] == item[-1]:
+            count += 1
     print(count)
 
 
