@@ -6,6 +6,8 @@ custom_dict = {
     "city": "London"
 }
 
+# Function to remove any empty items from a dictionary
+
 
 def remove_empty_items(p_custom_dict):
     new_dict = {}

@@ -1,6 +1,8 @@
 import pprint
 custom_list = [10, "one", "two", "ten", 20, 30, "five", 40, "nine", 50]
 
+# Function to turn a list into a dictionary with the value being the type of the key
+
 
 def group_types(p_custom_list):
     new_dict = dict.fromkeys(p_custom_list)

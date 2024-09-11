@@ -1,3 +1,4 @@
+# Function to create a nested dictionary with the length of each value
 def value_length(p_dict):
     new_dict = {}
     for key, value in p_dict.items():

@@ -1,3 +1,4 @@
+# function to take in a message and a shift number, then either encode or decode the message.
 def convert(p_message, p_shift_num, p_choice):
     new_message = ""
     for i in p_message:
@@ -16,6 +17,7 @@ def convert(p_message, p_shift_num, p_choice):
     return new_message
 
 
+# Function to check the value entered for the shift number was an integer.
 def checkNumber(userInput):
     while True:
         try:
@@ -38,6 +40,8 @@ alphabet = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
             '=', '+', '#', '/', '*', '£', '$', '%', '^', '&', '@', '~', '(', ')']
 repeat = "Y"
 
+# Until the user chooses not to play again, they must: enter a message, a shift number and wether to encode or decode.
+# The altered message will then be displayed.
 while repeat[0] == "Y":
     choice = input("Do you want to encrypt or decrypt your message?\n").upper()
     if choice[0] == "E" or choice[0] == "D":
