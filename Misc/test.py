@@ -32,7 +32,6 @@ def check_user_entry(row_or_col):
             f"\nWhat {row_or_col} is the star on? (1-3, X to quit) ").upper()
 
         if user_input == "X":
-            print("\nThank you, Maybe we can play again some other time.")
             input_error = False
             guess_again = False
         else:
@@ -42,8 +41,6 @@ def check_user_entry(row_or_col):
                 continue
             else:
                 if 1 <= user_input <= 3:
-                    print("\nThank you")
-                    time.sleep(2.5)
                     input_error = False
                     guess_again = True
                 else:
@@ -57,6 +54,7 @@ def check_user_entry(row_or_col):
 # Start of the game
 new_game = True
 while new_game is True:
+    # Initialise the map and generate a random location for the star
     map1 = [["⬜️", "️⬜️", "️⬜️"], ["⬜️", "️⬜️", "️⬜️"], ["⬜️", "️⬜️", "️⬜️"]]
     rand_row = random.randint(0, 2)
     rand_col = random.randint(0, 2)
@@ -64,6 +62,7 @@ while new_game is True:
     correct_guess = False
     guess_again = True
     while correct_guess is False and guess_again is True:
+        # Take user guess and repeat as long as they choose too, or they guess correctly
         print("A GOLDEN STAR is hidden somewhere in the map. Where do you think it is?\n")
         print_map(map1)
 
@@ -75,6 +74,33 @@ while new_game is True:
             if user_input != "X":
                 user_col = user_input
 
-                print(f"{user_row}, {user_col}")
+                user_row = int(user_row) - 1
+                user_col = int(user_col) - 1
 
-    new_game = False
+                if user_row == rand_row and user_col == rand_col:
+                    os.system("cls")
+                    print("Congratulations!!! You have found the Golden STAR!\n")
+                    map1[rand_row][rand_col] = "⭐"
+                    print_map(map1)
+                    guess_again = False
+
+                else:
+                    print("\nUnfortunatly you didn't find the hidden star 🙁")
+                    time.sleep(2.5)
+                    map1[user_row][user_col] = "💩"
+                    os.system("cls")
+
+    correct = False
+    while correct is False:
+        repeat = input(
+            "\nWould you like to play again? (Y / N)\n").upper()
+        if repeat[0] == "Y":
+            os.system("cls")
+            break
+        elif repeat[0] == "N":
+            correct = True
+            new_game = False
+        else:
+            print("You need to type either Yes or No. Please try again.")
+
+print("\nThanks, Maybe we can play again some other time.")
