@@ -1,9 +1,8 @@
-blind_auction_dict = {'matt': 5, 'Thea': 1, 'Emma': 9}
+def even_index_items(p_my_tuple):
+    new_tuple = tuple(p_my_tuple[i] for i in range(0, len(p_my_tuple), 2))
+    return new_tuple
 
-print(blind_auction_dict)
-new_blind = dict(sorted(blind_auction_dict.items(), key=lambda x: x[1]))
-print(new_blind)
-last = list(new_blind)[-1]
-bid = new_blind[last]
-print(last)
-print(bid)
+
+my_tuple = ("a", "b", "c", "d", "e", "f", "g")
+
+print(even_index_items(my_tuple))
