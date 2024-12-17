@@ -1,4 +1,5 @@
-import os
+"""Music tracks saved here."""
+
 playlist = {
     "Green Day": {
         "American Idiot": {
@@ -25,13 +26,3 @@ playlist = {
             "Songs": ["One",
                       "Stories for Boys",
                       "Pride (In the Name of Love)"]}}}
-
-
-for num, key in enumerate(playlist, 1):
-    print(f"{num} - {key}")
-
-choice = int(
-    input("\nWhat would you like to listen to today? (ENTER ARTIST NUMBER): "))
-key, value = list(playlist.items())[choice - 1]
-
-print(key, value)
