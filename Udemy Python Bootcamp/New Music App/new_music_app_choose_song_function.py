@@ -13,7 +13,6 @@ def choose_song():
     os.system('cls')
     print(LOGO)
     print("\nARTISTS:")
-###################################################################
     temp_artist, temp_dict, choice = selection("ARTISTS", playlist)
 
     print("\nALBUMS")

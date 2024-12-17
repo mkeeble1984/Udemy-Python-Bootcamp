@@ -1,15 +1,13 @@
 """Main program for Music App."""
 
 import os
-# import time
 from new_music_app_logo import LOGO
 from new_music_app_random_song_function import choose_random
-# from new_music_app_playlist import playlist
-# from new_music_app_selection_function import selection
 from new_music_app_choose_song_function import choose_song
+from new_music_app_add_song import add_song
 
 CHOICE = 0
-while CHOICE != 3:
+while CHOICE != 4:
     os.system('cls')
     print(LOGO)
 
@@ -25,7 +23,7 @@ while CHOICE != 3:
     elif CHOICE == 2:
         choose_random()
     elif CHOICE == 3:
-        print("ADD A SONG")
+        add_song()
 
 os.system('cls')
 print(LOGO)
