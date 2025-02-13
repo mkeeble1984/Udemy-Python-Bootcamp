@@ -1,22 +1,33 @@
-"""Program to convert a user entered string into Pig Latin"""
+import time
+import os
 
-vowels = ['A', 'E', 'I', 'O', 'U']
-new_sentence = []
-start_of_word = ""
-MAIN_WORD = ""
-message = input(
-    "Please enter a messaage in English to be translated into Pig Latin: ")
+LOGO = r"""
+ /$$$$$$$                                             /$$                 /$$ /$$
+| $$__  $$                                           | $$                | $$| $$
+| $$  \ $$ /$$$$$$  /$$  /$$  /$$  /$$$$$$   /$$$$$$ | $$$$$$$   /$$$$$$ | $$| $$
+| $$$$$$$//$$__  $$| $$ | $$ | $$ /$$__  $$ /$$__  $$| $$__  $$ |____  $$| $$| $$
+| $$____/| $$  \ $$| $$ | $$ | $$| $$$$$$$$| $$  \__/| $$  \ $$  /$$$$$$$| $$| $$
+| $$     | $$  | $$| $$ | $$ | $$| $$_____/| $$      | $$  | $$ /$$__  $$| $$| $$
+| $$     |  $$$$$$/|  $$$$$/$$$$/|  $$$$$$$| $$      | $$$$$$$/|  $$$$$$$| $$| $$
+|__/      \______/  \_____/\___/  \_______/|__/      |_______/  \_______/|__/|__/
+                                                                                
+"""
 
-message_words = message.split()
 
-for word in message_words:
-    char_word = list(word)
-    print(char_word)
-    for char in char_word:
-        if char.isnumeric():
-            start_of_word = start_of_word + char
-        else:
-            MAIN_WORD = MAIN_WORD + char
+def five_nums(p_split_nums):
+    """Function to check the user has eneterd 5 numbers"""
+    if len(p_split_nums) != 5:
+        print("\nERROR - You have not selected 5 numbers, please try again.")
+        time.sleep(2.5)
+        os.system("cls")
+        return False
 
-print(start_of_word)
-print(MAIN_WORD)
+
+while True:
+    print(LOGO)
+    print()
+    print("Select 5 numbers from 1 - 69, with a space in between (e.g. 1 5 9 22 51)")
+    player_nums = input("--> ")
+
+    split_nums = player_nums.split()
+    five_nums(split_nums)
